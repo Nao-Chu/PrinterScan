@@ -1,0 +1,6 @@
+1. 是否可以自己找到对应的vid/pid，
+2. IO传输的Endpoint问题。
+
+
+1. 查看规格书
+2. 在github看sane源码
