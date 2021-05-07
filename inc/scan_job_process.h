@@ -5,10 +5,9 @@
 
 void SendData(int sockfd,void* data);
 void * RecvData(int sockfd);
-void CheckAbnormal(unsigned char *buffer,int sockfd);
+void CheckAbnormal(const unsigned char *buffer,int sockfd);
 void StatusProcess(unsigned char status[4],int sockfd);
 void ReleaseScanJob(int sockfd);
 void CancelScan(int sockfd);
-void RecvAbort(int sockfd);
 
 #endif

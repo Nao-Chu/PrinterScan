@@ -1,0 +1,176 @@
+[INFO] [2021-01-27 14:17:28]  Run Start!!!
+[INFO] [2021-01-27 14:17:28] New Scan Thread  -754174208
+[INFO] [2021-01-27 14:17:28] send:LockScanResource
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] recv:LockScanResource
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] send:SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] recv:SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] send:GetScanJobSettings
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] recv:GetScanJobSettings
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] send:SetScanJobSettings
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] recv:SetScanJobSettings
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] send:StartScanJob
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] recv:StartScanJob
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:28] recv:StartJob
+[INFO] [2021-01-27 14:17:28] status:  e_Success
+[INFO] [2021-01-27 14:17:31] recv:StartSheet
+[INFO] [2021-01-27 14:17:31] status:  e_Success
+[INFO] [2021-01-27 14:17:31] recv:StartPage
+[INFO] [2021-01-27 14:17:31] status:  e_Success
+[INFO] [2021-01-27 14:17:39] send:ReleaseScanResource
+[INFO] [2021-01-27 14:17:39] status:  e_Success
+[INFO] [2021-01-27 14:17:39] recv:ReleaseScanResource
+[INFO] [2021-01-27 14:17:39] status:  e_Success
+[INFO] [2021-01-27 14:17:39] Thread exited, id : -754174208
+[INFO] [2021-01-27 14:17:53] New Scan Thread  -764762368
+[INFO] [2021-01-27 14:17:53] send:LockScanResource
+[INFO] [2021-01-27 14:17:53] status:  e_Success
+[INFO] [2021-01-27 14:17:53] recv:LockScanResource
+[INFO] [2021-01-27 14:17:53] status:  e_Success
+[INFO] [2021-01-27 14:17:53] send:SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:17:53] status:  e_Success
+[INFO] [2021-01-27 14:17:53] recv:SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:17:53] status:  e_Success
+[INFO] [2021-01-27 14:17:53] send:GetScanJobSettings
+[INFO] [2021-01-27 14:17:53] status:  e_Success
+[INFO] [2021-01-27 14:17:53] recv:GetScanJobSettings
+[INFO] [2021-01-27 14:17:53] status:  e_Success
+[INFO] [2021-01-27 14:17:53] send:SetScanJobSettings
+[INFO] [2021-01-27 14:17:53] status:  e_Success
+[INFO] [2021-01-27 14:17:54] recv:SetScanJobSettings
+[INFO] [2021-01-27 14:17:54] status:  e_Success
+[INFO] [2021-01-27 14:17:54] send:StartScanJob
+[INFO] [2021-01-27 14:17:54] status:  e_Success
+[INFO] [2021-01-27 14:17:54] recv:StartScanJob
+[INFO] [2021-01-27 14:17:54] status:  e_Success
+[INFO] [2021-01-27 14:17:54] recv:StartJob
+[INFO] [2021-01-27 14:17:54] status:  e_Success
+[INFO] [2021-01-27 14:17:57] recv:StartSheet
+[INFO] [2021-01-27 14:17:57] status:  e_Success
+[INFO] [2021-01-27 14:17:57] recv:StartPage
+[INFO] [2021-01-27 14:17:57] status:  e_Success
+[INFO] [2021-01-27 14:17:58] Thread exited, id : -764762368
+[INFO] [2021-01-27 14:17:58] send:CancelScanJob
+[INFO] [2021-01-27 14:17:58] status:  e_Success
+[INFO] [2021-01-27 14:17:58] recv:Abortscanjob
+[INFO] [2021-01-27 14:17:58] status:  e_Success
+[INFO] [2021-01-27 14:17:58] send:ReleaseScanResource
+[INFO] [2021-01-27 14:17:58] status:  e_Success
+[INFO] [2021-01-27 14:18:03] recv:ReleaseScanResource
+[INFO] [2021-01-27 14:18:03] status:  e_Success
+[INFO] [2021-01-27 14:18:03] Thread exited, id : -764762368
+[INFO] [2021-01-27 14:19:47]  Run Start!!!
+[INFO] [2021-01-27 14:19:47] New Scan Thread  -369330432
+[INFO] [2021-01-27 14:19:47] send: LockScanResource
+[INFO] [2021-01-27 14:19:47] status:  e_Success
+[INFO] [2021-01-27 14:19:47] recv: LockScanResource
+[INFO] [2021-01-27 14:19:47] status:  e_Success
+[INFO] [2021-01-27 14:19:47] send: SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:19:47] status:  e_Success
+[INFO] [2021-01-27 14:19:47] recv: SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:19:47] status:  e_Success
+[INFO] [2021-01-27 14:19:47] send: GetScanJobSettings
+[INFO] [2021-01-27 14:19:47] status:  e_Success
+[INFO] [2021-01-27 14:19:47] recv: GetScanJobSettings
+[INFO] [2021-01-27 14:19:47] status:  e_Success
+[INFO] [2021-01-27 14:19:47] send: SetScanJobSettings
+[INFO] [2021-01-27 14:19:47] status:  e_Success
+[INFO] [2021-01-27 14:19:48] recv: SetScanJobSettings
+[INFO] [2021-01-27 14:19:48] status:  e_Success
+[INFO] [2021-01-27 14:19:48] send: StartScanJob
+[INFO] [2021-01-27 14:19:48] status:  e_Success
+[INFO] [2021-01-27 14:19:48] recv: StartScanJob
+[INFO] [2021-01-27 14:19:48] status:  e_Success
+[INFO] [2021-01-27 14:19:48] recv: StartJob
+[INFO] [2021-01-27 14:19:48] status:  e_Success
+[INFO] [2021-01-27 14:19:51] recv: StartSheet
+[INFO] [2021-01-27 14:19:51] status:  e_Success
+[INFO] [2021-01-27 14:19:51] recv: StartPage
+[INFO] [2021-01-27 14:19:51] status:  e_Success
+[INFO] [2021-01-27 14:19:52] Thread exited, id : -369330432
+[INFO] [2021-01-27 14:19:52] send: CancelScanJob
+[INFO] [2021-01-27 14:19:52] status:  e_Success
+[INFO] [2021-01-27 14:19:52] recv: Abortscanjob
+[INFO] [2021-01-27 14:19:52] status:  e_Success
+[INFO] [2021-01-27 14:19:52] send: ReleaseScanResource
+[INFO] [2021-01-27 14:19:52] status:  e_Success
+[INFO] [2021-01-27 14:19:58] recv: ReleaseScanResource
+[INFO] [2021-01-27 14:19:58] status:  e_Success
+[INFO] [2021-01-27 14:19:58] Thread exited, id : -369330432
+[INFO] [2021-01-27 14:22:20]  Run Start!!!
+[INFO] [2021-01-27 14:22:20] New Scan Thread  -1220860160
+[INFO] [2021-01-27 14:22:20] send: LockScanResource
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] recv: LockScanResource
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] send: SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] recv: SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] send: GetScanJobSettings
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] recv: GetScanJobSettings
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] send: SetScanJobSettings
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] recv: SetScanJobSettings
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] send: StartScanJob
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] recv: StartScanJob
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:20] recv: StartJob
+[INFO] [2021-01-27 14:22:20] status:  e_Success
+[INFO] [2021-01-27 14:22:23] recv: StartSheet
+[INFO] [2021-01-27 14:22:23] status:  e_Success
+[INFO] [2021-01-27 14:22:23] recv: StartPage
+[INFO] [2021-01-27 14:22:23] status:  e_Success
+[INFO] [2021-01-27 14:22:31] send: ReleaseScanResource
+[INFO] [2021-01-27 14:22:31] status:  e_Success
+[INFO] [2021-01-27 14:22:31] recv: ReleaseScanResource
+[INFO] [2021-01-27 14:22:31] status:  e_Success
+[INFO] [2021-01-27 14:22:31] scan job end... 
+[INFO] [2021-01-27 14:22:31] Thread exited, id : -1220860160
+[INFO] [2021-01-27 14:22:46] New Scan Thread  -1231448320
+[INFO] [2021-01-27 14:22:46] send: LockScanResource
+[INFO] [2021-01-27 14:22:46] status:  e_Success
+[INFO] [2021-01-27 14:22:46] recv: LockScanResource
+[INFO] [2021-01-27 14:22:46] status:  e_Success
+[INFO] [2021-01-27 14:22:46] send: SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:22:46] status:  e_Success
+[INFO] [2021-01-27 14:22:46] recv: SetDefaultScanJobSettings
+[INFO] [2021-01-27 14:22:46] status:  e_Success
+[INFO] [2021-01-27 14:22:46] send: GetScanJobSettings
+[INFO] [2021-01-27 14:22:46] status:  e_Success
+[INFO] [2021-01-27 14:22:46] recv: GetScanJobSettings
+[INFO] [2021-01-27 14:22:46] status:  e_Success
+[INFO] [2021-01-27 14:22:47] send: SetScanJobSettings
+[INFO] [2021-01-27 14:22:47] status:  e_Success
+[INFO] [2021-01-27 14:22:47] recv: SetScanJobSettings
+[INFO] [2021-01-27 14:22:47] status:  e_Success
+[INFO] [2021-01-27 14:22:47] send: StartScanJob
+[INFO] [2021-01-27 14:22:47] status:  e_Success
+[INFO] [2021-01-27 14:22:47] recv: StartScanJob
+[INFO] [2021-01-27 14:22:47] status:  e_Success
+[INFO] [2021-01-27 14:22:47] recv: StartJob
+[INFO] [2021-01-27 14:22:47] status:  e_Success
+[INFO] [2021-01-27 14:22:48] Thread exited, id : -1231448320
+[INFO] [2021-01-27 14:22:48] send: CancelScanJob
+[INFO] [2021-01-27 14:22:48] status:  e_Success
+[INFO] [2021-01-27 14:22:49] recv: Abortscanjob
+[INFO] [2021-01-27 14:22:49] status:  e_Success
+[INFO] [2021-01-27 14:22:49] send: ReleaseScanResource
+[INFO] [2021-01-27 14:22:49] status:  e_Success
+[INFO] [2021-01-27 14:22:54] recv: ReleaseScanResource
+[INFO] [2021-01-27 14:22:54] status:  e_Success
+[INFO] [2021-01-27 14:22:54] scan job end... 
+[INFO] [2021-01-27 14:22:54] Thread exited, id : -1231448320

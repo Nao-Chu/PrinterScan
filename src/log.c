@@ -1,5 +1,4 @@
 /** log.c **/
- 
 #include "../inc/log.h"
 #define MAXLEVELNUM (3)
  

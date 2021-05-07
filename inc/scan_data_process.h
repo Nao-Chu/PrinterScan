@@ -62,6 +62,7 @@ int recvLen;
 int sendLen;
 int sendimagedone;
 int sendimagenumber;
+int out;
 void* LockScanResource();
 void* SetDefaultScanJobSettings();
 void* GetScanJobSettings();

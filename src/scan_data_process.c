@@ -1,12 +1,12 @@
 #include "../inc/scan_data_process.h"
-#include "../inc/scan_job_process.h"
+#include "../inc/log.h"
 
 #include <string.h>
 #include <stdlib.h>
 
 int sendimagedone = 0;
 int sendimagenumber = 0;
-
+int out = 0;
 scan_header init()
 {
 	memset(&data, 0x0, sizeof(data));
@@ -60,10 +60,10 @@ void*  SetScanJobSettingsHeader(unsigned char* buffer)
 void* SetScanJobSettings(unsigned char* buffer)
 {    
         scan_job_settings* data = (scan_job_settings*) buffer;
-        //data->Resolution[2] = 0x00;
-        //data->Resolution[3] = 0x4b;
         data->Resolution[2] = 0x00;
-        data->Resolution[3] = 0x96;
+        data->Resolution[3] = 0x4b;
+        //data->Resolution[2] = 0x00;
+        //data->Resolution[3] = 0x96;
         //data->Resolution[2] = 0x01;
         //data->Resolution[3] = 0x2c;
         //data->RemoteScan[0] = 0x00;
@@ -104,6 +104,10 @@ char* PrintStatus(unsigned char status[4])
         for (int i = 0 ; i < 8; i++){
                 if(charcmp(status,value[i]) == 0){
                         printf("status: %s\n",name[i]);
+                        if (i != 0 && out)
+                                LogWrite(ERROR,"%s",name[i]);
+                        else if (i == 0 && out)
+                                LogWrite(INFO,"%s %s","status: ",name[i]);
                         return name[i];
                 }
         }
@@ -117,8 +121,11 @@ int Messages(unsigned char message[4],char *who)
         "SetScanJobSettings","SetDefaultScanJobSettings","StartJob","StartSheet","StartPage","EndJob","EndSheet","EndPage","AdfIsPaperPresent"};
         for (int i = 0 ; i < 16; i++){
                 if(charcmp(message,value[i]) == 0){
+                        out = (i != 5);
                         if (who != NULL)
                                 printf("%s: %s ... ",who,name[i]);
+                        if (who != NULL && out)
+                                LogWrite(INFO,"%s: %s",who,name[i]);
                         return i;
                 }
         }

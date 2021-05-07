@@ -19,7 +19,7 @@
 
 pthread_t scan_id;
 
-int TcpConnect(char ** argv);
+void TcpConnect(char ** argv);
 int TimeoutConnect(int __fd, __CONST_SOCKADDR_ARG __addr, socklen_t __len);
 void *ScanJob(void *argv);
 
@@ -29,6 +29,7 @@ int sockfd;
 
 int main(int argc,char ** argv)
 {
+	LogWrite(INFO,"\n %s","Run Start!!!");
 	if (argc != 3){
 		printf("user should input: ip port\n");
 		exit(0);
@@ -63,87 +64,93 @@ int main(int argc,char ** argv)
 		}
 		ch = 0;
 	}
-	
 	return 0;
 }
 
-int  TcpConnect(char ** argv)
+void  TcpConnect(char ** argv)
 {	
-	if ((sockfd = socket(AF_INET,SOCK_STREAM,0)) == -1) {
-		printf("create socket error:%s(errno:%d)\n",strerror(errno),errno);
-		return -1;
-	}
+	int ret;
+	do{
+		if ((ret = sockfd = socket(AF_INET,SOCK_STREAM,0)) == -1) {
+			printf("create socket error:%s(errno:%d)\n",strerror(errno),errno);
+			break;
+		}
 
-	struct sockaddr_in servaddr;
-	memset(&servaddr,0,sizeof(servaddr));
-	servaddr.sin_family = AF_INET;
-	servaddr.sin_port = htons(atoi(argv[2]));
-	inet_pton(AF_INET,argv[1],&servaddr.sin_addr);
+		struct sockaddr_in servaddr;
+		memset(&servaddr,0,sizeof(servaddr));
+		servaddr.sin_family = AF_INET;
+		servaddr.sin_port = htons(atoi(argv[2]));
+		inet_pton(AF_INET,argv[1],&servaddr.sin_addr);
+		
+		// 改为非阻塞
+		if ((ret = fcntl(sockfd,F_SETFL,fcntl(sockfd,F_GETFD) | O_NONBLOCK)) == -1) {
+			printf("set flags error:%s(errno:%d)\n",strerror(errno),errno);
+			break;
+		}
+		
+		if ((ret = TimeoutConnect(sockfd,(struct sockaddr *)&servaddr,sizeof(servaddr))) == -1){
+			printf("connect end\n");
+			break;
+		}
+
+		// 改回阻塞状态
+		if ((ret = fcntl(sockfd,F_SETFL,fcntl(sockfd,F_GETFD) & (~O_NONBLOCK))) == -1) {
+			printf("set flags error:%s(errno:%d)\n",strerror(errno),errno);
+			break;
+		}
+	}while(0);
 	
-	// 改为非阻塞
-	if (fcntl(sockfd,F_SETFL,fcntl(sockfd,F_GETFD) | O_NONBLOCK) == -1) {
-		printf("set flags error:%s(errno:%d)\n",strerror(errno),errno);
-		return -1;
-	}
-	
-	int ret = TimeoutConnect(sockfd,(struct sockaddr *)&servaddr,sizeof(servaddr));
-	if (ret == -1){
-		printf("connect end\n");
+	if (ret == -1) {
 		close(sockfd);
 		pthread_exit(0);
+		LogWrite(INFO,"%s %d %s","New Thread",scan_id,"exited");
 	}
-
-	// 改回阻塞状态
-	if (fcntl(sockfd,F_SETFL,fcntl(sockfd,F_GETFD) & (~O_NONBLOCK)) == -1) {
-		printf("set flags error:%s(errno:%d)\n",strerror(errno),errno);
-		return -1;
-	}
-	return ret;
+	
 }
 
 int TimeoutConnect(int sockfd, __CONST_SOCKADDR_ARG __addr, socklen_t __len)
 {
-	int ret = connect(sockfd,__addr,__len);
-	if (ret == 0) {
-		if (fcntl(sockfd,F_SETFL,fcntl(sockfd,F_GETFD) | O_NONBLOCK) == -1) {
-			printf("set flags error:%s(errno:%d)\n",strerror(errno),errno);
-			return -1;
+	int ret;
+	do {
+		if ((ret = connect(sockfd,__addr,__len)) == 0)
+			break;
+
+		if ((ret = (errno == EINPROGRESS) - 1 ) == -1)
+			break;
+		
+		fd_set fdw;
+		FD_ZERO(&fdw);
+		FD_SET(sockfd,&fdw);
+
+		struct timeval timeout;
+		timeout.tv_sec = 10;
+		timeout.tv_usec = 0;
+		//  10秒超时
+		if (select(sockfd+1,NULL,&fdw,NULL,&timeout) <= 0) {
+			printf("connect fail\n");
+			ret = -1;
+			break;
 		}
-		printf("reconnect success\n");
-		return 0;
-	} 
-
-	if (errno != EINPROGRESS)
-		return -1;
+		
+		int err = 0;
+		int errlen = sizeof(err);
+		getsockopt(sockfd,SOL_SOCKET,SO_ERROR,&err,&errlen);
+		// err =0   代表成功
+		if ((ret = (err == 0) -1) == -1) {
+			printf("connect timeout: %s\n", strerror(errno));
+			LogWrite(ERROR,"%s %s", "connect timeout: ",strerror(errno));
+		}
+	}while(0);
 	
-	int err = 0;
-	int errlen = sizeof(err);
-	fd_set fdw;
-	FD_ZERO(&fdw);
-	FD_SET(sockfd,&fdw);
+	if (ret == 0) 
+		printf("connect success!\n");
 
-	struct timeval timeout;
-	timeout.tv_sec = 10;
-	timeout.tv_usec = 0;
-	//  10秒超时
-	if (select(sockfd+1,NULL,&fdw,NULL,&timeout) <= 0) {
-		printf("connect fail\n");
-		return -1;
-	}
-	
-	getsockopt(sockfd,SOL_SOCKET,SO_ERROR,&err,&errlen);
-	if (err != 0) {
-		printf("err = %d\n",err);
-		printf("connect timeout: %s\n", strerror(errno));
-		return -1;
-	}
-	// err =0   代表成功
-	printf("connect success!\n");
-	return 0;
+	return ret;
 }
 
 void *ScanJob(void *argv)
 {
+	LogWrite(INFO,"%s %d\n","New Scan Thread ",pthread_self());
 	TcpConnect((char **)argv);
 
 	unsigned char *buffer;
